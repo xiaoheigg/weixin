@@ -1,707 +1,636 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>深圳程序员交流群日报 - 2025-05-30</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深圳程序员技术交流群2.0🐶🐶 - 群聊报告 V3 (2024-06-03)</title>
     <script src="https://cdn.tailwindcss.com/3.4.3"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10/dist/framer-motion.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/11.2.10/motion.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
-        :root {
-            --bg-primary-light: #f0f2f5; /* Light mode background */
-            --bg-secondary-light: #ffffff;
-            --bg-tertiary-light: #f8f9fa;
-            --text-primary-light: #1c1e21; /* Light mode text */
-            --text-secondary-light: #555e68;
-            --accent-primary-light: #E31937; /* Tesla Red */
-            --accent-secondary-light: #007bff;
-            --accent-tertiary-light: #17a2b8;
-            --border-light: #e0e0e0;
+      :root {
+        --bg-primary: #f9fafb; /* Light gray background */
+        --bg-card: #ffffff;    /* White card */
+        --text-primary: #11182c; /* Dark gray text */
+        --text-secondary: #374151; /* Darker content text */
+        --text-subtle: #6b7280;  /* Medium gray subtitle */
+        --text-accent: #e31937;  /* Tesla Red for titles & accents */
+        --text-accent-darker: #b91c1c; /* Darker red text */
+        --border-primary: #e5e7eb; /* Lighter border */
+        --border-accent: #e31937;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+        --bento-gradient-start: rgba(227, 25, 55, 0.15);
+        --bento-gradient-end: rgba(227, 25, 55, 0.03);
+        --participant-tag-bg: rgba(227, 25, 55, 0.1);
+        --participant-tag-border: rgba(227, 25, 55, 0.2);
+        --evaluation-bg: rgba(227, 25, 55, 0.04);
+        --evaluation-text-color: #4b5563;
+        --keyword-tag-bg: rgba(227, 25, 55, 0.08);
+        --keyword-tag-text: #c72f2f;
+        --keyword-tag-border: rgba(227, 25, 55, 0.15);
+        --speaker-bar-bg-color: #e5e7eb;
+        --night-owl-item-bg: #f3f4f6; /* Light gray for night owl items */
+      }
 
-            --bg-primary-dark: #0B0B0F; /* Dark mode background (Bento/Tesla) */
-            --bg-secondary-dark: #121218;
-            --bg-tertiary-dark: #1A1A22;
-            --text-primary-dark: #EAEAEA; /* Dark mode text */
-            --text-secondary-dark: #A0A0A5;
-            --accent-primary-dark: #E31937; /* Tesla Red */
-            --accent-secondary-dark: #ff8906; /* Original prompt accent */
-            --accent-tertiary-dark: #f25f4c; /* Original prompt accent */
-            --border-dark: #2A2A33;
-        }
+      .dark-mode {
+        --bg-primary: #111827;  /* Dark blue-gray background */
+        --bg-card: #1f2937;     /* Darker card */
+        --text-primary: #f3f4f6; /* Light gray text */
+        --text-secondary: #d1d5db; /* Lighter content text */
+        --text-subtle: #9ca3af;   /* Lighter medium gray subtitle */
+        --text-accent: #f87171;   /* Lighter Tesla Red for dark mode */
+        --text-accent-darker: #ef4444;
+        --border-primary: #374151; /* Darker border */
+        --border-accent: #f87171;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --bento-gradient-start: rgba(248, 113, 113, 0.1);
+        --bento-gradient-end: rgba(248, 113, 113, 0.02);
+        --participant-tag-bg: rgba(248, 113, 113, 0.15);
+        --participant-tag-border: rgba(248, 113, 113, 0.25);
+        --evaluation-bg: rgba(248, 113, 113, 0.08);
+        --evaluation-text-color: #e5e7eb;
+        --keyword-tag-bg: rgba(248, 113, 113, 0.12);
+        --keyword-tag-text: #fca5a5;
+        --keyword-tag-border: rgba(248, 113, 113, 0.2);
+        --speaker-bar-bg-color: #374151;
+        --night-owl-item-bg: #374151; /* Darker gray for night owl items */
+      }
 
-        /* Base styles */
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            width: 1200px; /* Fixed width as per original CSS */
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Light Mode (default) */
-        body {
-            background-color: var(--bg-primary-light);
-            color: var(--text-primary-light);
-        }
-        .section-bg { background-color: var(--bg-secondary-light); border: 1px solid var(--border-light); }
-        .card-bg { background-color: var(--bg-tertiary-light); border: 1px solid var(--border-light); }
-        .text-main { color: var(--text-primary-light); }
-        .text-sub { color: var(--text-secondary-light); }
-        .accent-main { color: var(--accent-primary-light); }
-        .accent-main-bg { background-color: var(--accent-primary-light); }
-        .border-main { border-color: var(--accent-primary-light); }
-        .keyword-bg { background-color: rgba(227, 25, 55, 0.1); color: var(--accent-primary-light); }
-        .tag-bg { background-color: rgba(0, 123, 255, 0.1); color: var(--accent-secondary-light); }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+          sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        overflow-x: hidden;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .text-tesla-red { /* Will be overridden by --text-accent effectively */
+        color: var(--text-accent);
+      }
+      .bg-tesla-red {
+        background-color: var(--text-accent);
+      }
+      .border-tesla-red {
+        border-color: var(--border-accent);
+      }
 
+      .bento-card {
+        background-color: var(--bg-card);
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid var(--border-primary);
+        box-shadow: 0 4px 12px var(--shadow-color);
+        overflow: hidden;
+        position: relative;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .bento-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -1px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, var(--bento-gradient-start), var(--bento-gradient-end));
+        opacity: 0.7;
+        transition: background 0.3s;
+      }
 
-        /* Dark Mode */
-        html.dark body {
-            background-color: var(--bg-primary-dark);
-            color: var(--text-primary-dark);
-        }
-        html.dark .section-bg { background-color: var(--bg-secondary-dark); border: 1px solid var(--border-dark); }
-        html.dark .card-bg { background-color: var(--bg-tertiary-dark); border: 1px solid var(--border-dark); }
-        html.dark .text-main { color: var(--text-primary-dark); }
-        html.dark .text-sub { color: var(--text-secondary-dark); }
-        html.dark .accent-main { color: var(--accent-primary-dark); }
-        html.dark .accent-main-bg { background-color: var(--accent-primary-dark); }
-        html.dark .border-main { border-color: var(--accent-primary-dark); }
-        html.dark .keyword-bg { background-color: rgba(227, 25, 55, 0.2); color: var(--accent-primary-dark); }
-        html.dark .tag-bg { background-color: rgba(255, 137, 6, 0.2); color: var(--accent-secondary-dark); }
-
-
-        /* Specific Bento item styling */
-        .bento-item {
-            @apply rounded-2xl p-4 sm:p-6 shadow-xl transition-all duration-300 ease-in-out;
-            /* border: 1px solid transparent; */ /* Base border for consistency */
-        }
-        /* html.dark .bento-item { border-color: var(--border-dark); }
-        html:not(.dark) .bento-item { border-color: var(--border-light); } */
-
-        .bento-title {
-            @apply text-2xl font-bold mb-3;
-        }
-        html.dark .bento-title { @apply text-red-500; } /* Tesla Red for dark mode titles */
-        html:not(.dark) .bento-title { @apply text-red-600; } /* Slightly darker Tesla Red for light mode */
-
-
-        /* Word Cloud specific (from original prompt) */
-        .cloud-container {
-            position: relative;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-        .cloud-wordcloud {
-            position: relative;
-            width: 100%; /* Responsive */
-            max-width: 600px; /* Max width */
-            height: 400px;
-            margin: 0 auto;
-            border-radius: 50%;
-            box-shadow: 
-                40px 40px 0 -5px var(--cloud-shadow-color, var(--bg-tertiary-light)),
-                80px 10px 0 -10px var(--cloud-shadow-color, var(--bg-tertiary-light)),
-                110px 35px 0 -5px var(--cloud-shadow-color, var(--bg-tertiary-light)),
-                -40px 50px 0 -8px var(--cloud-shadow-color, var(--bg-tertiary-light)),
-                -70px 20px 0 -10px var(--cloud-shadow-color, var(--bg-tertiary-light));
-            overflow: visible;
-        }
-        html.dark .cloud-wordcloud {
-             background-color: var(--bg-tertiary-dark);
-             --cloud-shadow-color: var(--bg-tertiary-dark);
-        }
-        html:not(.dark) .cloud-wordcloud {
-             background-color: var(--bg-tertiary-light);
-             --cloud-shadow-color: var(--bg-tertiary-light);
-        }
-
-        .cloud-word {
-            position: absolute;
-            transform-origin: center;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            padding: 2px 5px;
-        }
-        html.dark .cloud-word { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-
-        .cloud-word:hover {
-            transform: scale(1.1);
-            z-index: 10;
-        }
-        .cloud-legend {
-            margin-top: 60px;
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Reduced gap */
-            flex-wrap: wrap;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .legend-color {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-        }
-        
-        /* Tailwind configuration (conceptual for static output) */
-        /*
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'tesla-red': '#E31937',
-                        'bg-primary-light': '#f0f2f5',
-                        'bg-secondary-light': '#ffffff',
-                        'bg-tertiary-light': '#f8f9fa',
-                        'text-primary-light': '#1c1e21',
-                        'text-secondary-light': '#555e68',
-                        'border-light': '#e0e0e0',
-
-                        'bg-primary-dark': '#0B0B0F',
-                        'bg-secondary-dark': '#121218',
-                        'bg-tertiary-dark': '#1A1A22',
-                        'text-primary-dark': '#EAEAEA',
-                        'text-secondary-dark': '#A0A0A5',
-                        'border-dark': '#2A2A33',
-                    }
-                }
-            }
-        }
-        */
+      .topic-title-cn {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        font-weight: 700;
+        color: var(--text-accent);
+      }
+      .topic-title-en {
+        font-size: 0.8rem;
+        color: var(--text-subtle);
+        margin-top: 0.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.075em;
+      }
+      .section-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-accent-darker); /* Keep red distinct on card background */
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      .content-text {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+      .participant-tag {
+        background-color: var(--participant-tag-bg);
+        color: var(--text-accent-darker);
+        padding: 0.25rem 0.6rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+        display: inline-block;
+        border: 1px solid var(--participant-tag-border);
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+      .evaluation-text {
+        font-style: normal;
+        color: var(--evaluation-text-color);
+        border-left: 3px solid var(--border-accent);
+        padding-left: 1rem;
+        margin-top: 0.75rem;
+        background-color: var(--evaluation-bg);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 0 8px 8px 0;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+      .fire-icon {
+        color: var(--text-accent);
+        opacity: 0.8;
+        margin-left: 0.25rem;
+      }
+      .card-hr {
+        border-color: var(--border-primary);
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: border-color 0.3s;
+      }
+      .speaker-bar-bg {
+        background-color: var(--speaker-bar-bg-color);
+        height: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 0.25rem;
+        transition: background-color 0.3s;
+      }
+      .speaker-bar-fill {
+        background-color: var(--text-accent);
+        height: 100%;
+        border-radius: 5px;
+        transition: width 0.5s ease-in-out, background-color 0.3s;
+      }
+      .stat-number-large {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--text-accent);
+        text-shadow: none;
+      }
+      .keyword-tag {
+        background-color: var(--keyword-tag-bg);
+        color: var(--keyword-tag-text);
+        padding: 0.3rem 0.7rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        margin: 0.25rem;
+        display: inline-block;
+        border: 1px solid var(--keyword-tag-border);
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+      .theme-toggle-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--text-accent);
+        color: var(--bg-card);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .theme-toggle-button:hover {
+        opacity: 0.9;
+      }
+      .night-owl-item {
+        background-color: var(--night-owl-item-bg);
+        transition: background-color 0.3s;
+      }
+      .text-primary-dynamic { color: var(--text-primary); }
+      .text-secondary-dynamic { color: var(--text-secondary); }
+      .text-subtle-dynamic { color: var(--text-subtle); }
     </style>
 </head>
-<body class="text-main">
-    <div class="fixed top-5 right-5 z-50">
-        <button id="theme-toggle" class="p-2 rounded-md focus:outline-none card-bg shadow-md">
-            <i class="fas fa-sun text-yellow-500"></i> <!-- Sun icon for light mode indication -->
-            <i class="fas fa-moon text-indigo-400 hidden"></i> <!-- Moon icon for dark mode indication -->
-        </button>
-    </div>
+<body class="antialiased">
+    <button id="theme-toggle" class="theme-toggle-button">
+      <i class="fas fa-moon"></i>
+    </button>
 
-    <motion.header 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        class="text-center py-8 mb-8 section-bg rounded-2xl bento-item">
-        <h1 class="text-5xl font-bold accent-main mb-2">深圳程序员交流群 日报</h1>
-        <p class="text-xl text-sub mb-4">2025-05-30</p>
-        <div class="flex justify-center gap-x-6 gap-y-2 flex-wrap text-sm text-sub">
-            <span><i class="fas fa-comments mr-1 accent-main"></i>总消息数: <strong class="text-lg accent-main">835</strong></span>
-            <span><i class="fas fa-users mr-1 accent-main"></i>活跃用户: <strong class="text-lg accent-main">38</strong></span>
-            <span><i class="fas fa-clock mr-1 accent-main"></i>时间范围: <strong class="text-base accent-main">10:27 - 01:54 (次日)</strong></span>
+    <div id="app" class="container mx-auto p-4 md:p-8 space-y-8">
+      <!-- Overall Style Evaluation -->
+      <motion.div
+        class="bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.1 }"
+      >
+        <h2 class="topic-title-cn text-tesla-red">群聊风格概览</h2>
+        <p class="topic-title-en">GROUP CHAT STYLE OVERVIEW (2024-06-03)</p>
+        <p class="content-text mt-4 text-base md:text-lg">
+          今日群聊氛围活跃，话题丰富多样。上午，由<strong class="font-semibold text-primary-dynamic">“纯情蟑螂火辣辣” (小白)</strong> 分享的<strong class="font-semibold text-primary-dynamic">职场遭遇</strong>引发广泛共鸣，讨论了公司管理、报销、跳槽等现实问题。随后，一则关于<strong class="font-semibold text-primary-dynamic">“迪士尼斗殴”</strong>的视频点燃了群友对公共冲突、自我防卫的热烈讨论，<strong class="font-semibold text-primary-dynamic">“灵魂写手”</strong>、<strong class="font-semibold text-primary-dynamic">“小红小跟班”</strong>等人积极参与。午后，话题转向<strong class="font-semibold text-primary-dynamic">生活休闲</strong>，包括去酒吧、足浴按摩的经历与看法，以及<strong class="font-semibold text-primary-dynamic">“清爽樱桃子”</strong>分享的<strong class="font-semibold text-primary-dynamic">咸鱼卖二手拖鞋奇遇</strong>。此外，群友们还就<strong class="font-semibold text-primary-dynamic">宠物猫、两性关系（如磊子与小红）、生育观念、旅游（王烁烁的哈尔滨行）、美食、恐怖电影</strong>等内容展开交流。整体呈现出<strong class="font-semibold text-primary-dynamic">话题生活化、贴近现实、既有严肃讨论也不乏轻松幽默</strong>的社群生态。
+        </p>
+      </motion.div>
+
+      <!-- Topics Grid -->
+      <div class="div"><h2 class="topic-title-cn text-tesla-red">热点话题</h2></div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          class="bento-card"
+          :initial="{ opacity: 0, y: 20 }"
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.1 }"
+        >
+          <h2 class="topic-title-cn">
+            1️⃣ 职场风云：小白的吐槽与程序员的焦虑
+            <span class="fire-icon"
+              ><i class="fas fa-briefcase"></i><i class="fas fa-user-tie"></i><i class="fas fa-laptop-code"></i
+            ></span>
+          </h2>
+          <p class="topic-title-en">WORKPLACE CHRONICLES & PROGRAMMER'S ANXIETY</p>
+          <hr class="card-hr" />
+          <div>
+            <span class="section-label">主要参与者：</span>
+            <div class="flex flex-wrap">
+              <span class="participant-tag">纯情蟑螂火辣辣 (小白)</span>
+              <span class="participant-tag">鸭鸭</span>
+              <span class="participant-tag">青木（群薪资地花板）</span>
+              <span class="participant-tag">迪斯尼在逃公主Vivian</span>
+              <span class="participant-tag">L*</span>
+              <span class="participant-tag">小红小跟班</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <span class="section-label">时间段：</span>
+            <span class="content-text">09:45 - 11:35 (集中讨论期)，后续亦有提及</span>
+          </div>
+          <p class="section-label mt-4">过程：</p>
+          <p class="content-text">
+            “纯情蟑螂火辣辣”（小白）分享了其在公司遭遇的种种不快，包括领导的奇葩行为（如出差喊人关灯）、工作交接的压力、报销流程缓慢等问题，萌生去意。群友纷纷支招并感叹职场不易。讨论延伸至程序员行业现状，如“35岁危机”、提桶跑路、转行家政等话题，体现了普遍的职业焦虑感。
+          </p>
+          <p class="section-label mt-4">评价：</p>
+          <p class="evaluation-text">
+            当日重要议题之一，真实反映了当代职场人，特别是技术从业者面临的压力与困惑。小白的经历具有代表性，引发了群友的强烈共鸣和深入探讨。
+          </p>
+        </motion.div>
+
+        <motion.div
+          class="bento-card"
+          :initial="{ opacity: 0, y: 20 }"
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.15 }"
+        >
+          <h2 class="topic-title-cn">
+            2️⃣ 迪士尼斗殴视频引发的连锁反应
+            <span class="fire-icon"
+              ><i class="fas fa-fist-raised"></i><i class="fas fa-shield-alt"></i><i class="fas fa-comments"></i
+            ><i class="fas fa-fire"></i><i class="fas fa-fire"></i
+            ></span>
+          </h2>
+          <p class="topic-title-en">DISNEY BRAWL VIDEO & SELF-DEFENSE DEBATES</p>
+          <hr class="card-hr" />
+          <div>
+            <span class="section-label">主要参与者：</span>
+            <div class="flex flex-wrap">
+              <span class="participant-tag">灵魂写手</span>
+              <span class="participant-tag">六号技师</span>
+              <span class="participant-tag">小红小跟班</span>
+              <span class="participant-tag">金华</span>
+              <span class="participant-tag">迪斯尼在逃公主Vivian</span>
+              <span class="participant-tag">sunshine</span>
+              <span class="participant-tag">清爽樱桃子</span>
+              <span class="participant-tag">忘川</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <span class="section-label">时间段：</span>
+            <span class="content-text">10:25 - 11:05 (激烈讨论期)</span>
+          </div>
+          <p class="section-label mt-4">过程：</p>
+          <p class="content-text">
+            “灵魂写手”分享了一则迪士尼乐园游客斗殴的视频，迅速引爆群内讨论。群友们围绕事件起因（误入镜头、口角升级）、当事人行为（谁先动手、带孩子家长的克制与爆发）、以及在公共场合遭遇冲突时的应对策略展开激辩。讨论涉及“幸福者退让原则”、正当防卫的边界、女性如何自保（踢要害、跑路、砸店求助）等。
+          </p>
+          <p class="section-label mt-4">评价：</p>
+          <p class="evaluation-text">
+            由外部事件引发的深度社会话题探讨。群友们从不同角度分享观点，既有理性分析也有情绪宣泄，展现了社群成员对安全、法制与人际交往的关注。
+          </p>
+        </motion.div>
+
+        <motion.div
+          class="bento-card"
+          :initial="{ opacity: 0, y: 20 }"
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
+        >
+          <h2 class="topic-title-cn">
+            3️⃣ 生活百态：休闲娱乐与消费奇谈
+            <span class="fire-icon"
+              ><i class="fas fa-martini-glass-citrus"></i><i class="fas fa-shoe-prints"></i><i class="fas fa-cat"></i
+            ></span>
+          </h2>
+          <p class="topic-title-en">DAILY LIFE: LEISURE, CONSUMPTION & CURIOSITIES</p>
+          <hr class="card-hr" />
+          <div>
+            <span class="section-label">参与者：</span>
+            <div class="flex flex-wrap">
+              <span class="participant-tag">金华</span>
+              <span class="participant-tag">鸭鸭</span>
+              <span class="participant-tag">皇帝</span>
+              <span class="participant-tag">清爽樱桃子</span>
+              <span class="participant-tag">灵魂写手</span>
+              <span class="participant-tag">王烁烁</span>
+              <span class="participant-tag">测试失业中～</span>
+              <span class="participant-tag">六号技师</span>
+              <span class="participant-tag">小红小跟班</span>
+              <span class="participant-tag">纯情蟑螂火辣辣</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <span class="section-label">时间段：</span>
+            <span class="content-text">11:10 - 12:15 (酒吧足浴), 12:35 - 12:50 (宠物与衣物), 13:20 - 13:30 (二手交易), 14:00 onwards (旅游美食)</span>
+          </div>
+          <p class="section-label mt-4">过程：</p>
+          <p class="content-text">
+            群内分享了丰富多彩的日常生活片段。讨论了去酒吧、足疗按摩的经历和看法，区分“正经”与“不正经”场所。宠物猫成为常客，小白家添新猫“招财”，引发晒猫潮和养猫经验交流。消费方面，“清爽樱桃子”分享在咸鱼上高价卖出旧拖鞋的奇遇，引出“原味”物品讨论。“王烁烁”分享哈尔滨旅游见闻与美食照片，“测试失业中～”则吐槽杭州东坡肉。
+          </p>
+          <p class="section-label mt-4">评价：</p>
+          <p class="evaluation-text">
+            充满生活气息，话题轻松有趣，信息量大。从休闲选择到消费习惯，再到宠物情缘和旅行分享，展现了群友们多元的生活面貌和幽默感。
+          </p>
+        </motion.div>
+
+        <motion.div
+          class="bento-card md:col-span-2 lg:col-span-3"
+          :initial="{ opacity: 0, y: 20 }"
+          :while-in-view="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.3 }"
+        >
+          <h2 class="topic-title-cn text-tesla-red">其他提及话题</h2>
+          <p class="topic-title-en">OTHER MENTIONED TOPICS</p>
+          <hr class="card-hr" />
+          <ul class="list-none content-text mt-4 space-y-2 text-base">
+            <li class="flex items-start">
+              <i class="fas fa-venus-mars mr-3 mt-1 text-tesla-red opacity-70"></i><span>两性与婚育观：围绕“小红”与“磊子”的感情，讨论了结婚、彩礼（提及频率不高）、是否生孩子等话题，以及丁克家庭的利弊。(11:55 - 12:35)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-microchip mr-3 mt-1 text-tesla-red opacity-70"></i><span>科技与产品：提及小米NAS及其安全性、AI生成图片、rolldown-vite配置问题等。(08:08 - 08:45)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-film mr-3 mt-1 text-tesla-red opacity-70"></i><span>恐怖电影与娱乐：热议《死神来了》系列、《梅根》、《电锯惊魂》等恐怖片，分享观影感受。(14:15 - 14:35)</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-map-signs mr-3 mt-1 text-tesla-red opacity-70"></i><span>旅游与地域见闻：“王烁烁”分享哈尔滨风情，“测试失业中～”及“迪斯尼在逃公主Vivian”聊杭州印象，群友讨论各地美女特色。(13:40 - 14:10, 14:50 - 15:00)</span>
+            </li>
+             <li class="flex items-start">
+              <i class="fas fa-skull-crossbones mr-3 mt-1 text-tesla-red opacity-70"></i><span>社会事件与安全：提及龙华区近期发生的负面事件，引发对社会治安的担忧和“吃绝户”等现象的讨论。(11:52 - 12:15)</span>
+            </li>
+          </ul>
+        </motion.div>
+      </div>
+
+      <!-- 群聊热门词云 -->
+      <motion.div
+        class="bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.15 }"
+      >
+        <h3 class="topic-title-cn text-tesla-red">群聊热门词云</h3>
+        <p class="topic-title-en">CHAT HOT WORDS</p>
+        <div class="mt-4 flex flex-wrap justify-center">
+          <span class="keyword-tag">工作</span>
+          <span class="keyword-tag">公司</span>
+          <span class="keyword-tag">老板</span>
+          <span class="keyword-tag">猫</span>
+          <span class="keyword-tag">孩子</span>
+          <span class="keyword-tag">按摩</span>
+          <span class="keyword-tag">酒吧</span>
+          <span class="keyword-tag">结婚</span>
+          <span class="keyword-tag">旅游</span>
+          <span class="keyword-tag">吐槽</span>
+          <span class="keyword-tag">小白</span>
+          <span class="keyword-tag">金华</span>
+          <span class="keyword-tag">鸭鸭</span>
+          <span class="keyword-tag">小红</span>
+          <span class="keyword-tag">磊子</span>
+          <span class="keyword-tag">深圳</span>
+          <span class="keyword-tag">杭州</span>
+          <span class="keyword-tag">恐怖片</span>
+          <span class="keyword-tag">视频</span>
+          <span class="keyword-tag">报销</span>
         </div>
-    </motion.header>
+        <div class="mt-3 text-xs text-subtle-dynamic text-center">* 根据当日聊天内容高频词汇生成（已过滤常见停用词）。</div>
+      </motion.div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- 1. 今日讨论热点 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            class="lg:col-span-2 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-fire mr-2"></i>今日讨论热点</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">职场人际与选择</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">OFFICE POLITICS</div>
-                    <p class="text-sm text-sub mb-2">群友“纯情蟑螂火辣辣”分享了复杂的职场人际经历，特别是与女领导和总助之间的微妙关系及出行安排的尴尬。引发了关于职场站队、沟通技巧和情绪管理的讨论。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">领导</span><span class="keyword-bg px-2 py-0.5 rounded-full">总助</span><span class="keyword-bg px-2 py-0.5 rounded-full">职场</span><span class="keyword-bg px-2 py-0.5 rounded-full">出差</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">50+</strong></div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">薪资与工作现状</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">SALARY & WORK</div>
-                    <p class="text-sm text-sub mb-2">讨论了武汉地区的薪资水平（试用期五千，工资结构复杂）和深圳加班情况的变化。群友分享了对“体面工作应感恩”这类老板言论的看法。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">薪资</span><span class="keyword-bg px-2 py-0.5 rounded-full">加班</span><span class="keyword-bg px-2 py-0.5 rounded-full">武汉</span><span class="keyword-bg px-2 py-0.5 rounded-full">深圳</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">30+</strong></div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">两性关系与日常</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">RELATIONSHIP</div>
-                    <p class="text-sm text-sub mb-2">群友“皇帝”与“磊子哥”关于小蛋糕的互动成为焦点，延伸至情侣间相处模式、婚后变化（如夹子音消失）等话题。群友们分享了各自的爱情观和回忆。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">磊子哥</span><span class="keyword-bg px-2 py-0.5 rounded-full">小蛋糕</span><span class="keyword-bg px-2 py-0.5 rounded-full">爱情</span><span class="keyword-bg px-2 py-0.5 rounded-full">温柔</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">60+</strong></div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">休闲生活与消费</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">LEISURE</div>
-                    <p class="text-sm text-sub mb-2">讨论了西瓜价格、露营计划（因天气取消）、理财产品（债基、余利宝收益）及端午节福利等。对性价比和生活品质有所关注。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">西瓜</span><span class="keyword-bg px-2 py-0.5 rounded-full">露营</span><span class="keyword-bg px-2 py-0.5 rounded-full">理财</span><span class="keyword-bg px-2 py-0.5 rounded-full">粽子</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">40+</strong></div>
-                </div>
-                 <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">群内互动与梗文化</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">GROUP META</div>
-                    <p class="text-sm text-sub mb-2">对AI总结的准确性进行了讨论，提及“OIO”、“黄皮子讨封”等群内梗。后半段因截图和言语调侃引发了关于玩笑边界和尊重的激烈争论。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">AI总结</span><span class="keyword-bg px-2 py-0.5 rounded-full">OIO</span><span class="keyword-bg px-2 py-0.5 rounded-full">吵架</span><span class="keyword-bg px-2 py-0.5 rounded-full">截图</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">50+</strong></div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <h3 class="font-semibold text-lg text-main mb-1">工作经历与行业观察</h3>
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">CAREER PATH</div>
-                    <p class="text-sm text-sub mb-2">群友分享了在外贸、电销等行业的不愉快经历，如KPI压力、不规范的公司管理。讨论了学历对职业发展的影响及不同行业的就业前景。</p>
-                    <div class="flex flex-wrap gap-1 text-xs">
-                        <span class="keyword-bg px-2 py-0.5 rounded-full">外贸</span><span class="keyword-bg px-2 py-0.5 rounded-full">电销</span><span class="keyword-bg px-2 py-0.5 rounded-full">学历</span><span class="keyword-bg px-2 py-0.5 rounded-full">工作难找</span>
-                    </div>
-                    <div class="text-xs text-sub mt-1">提及次数: <strong class="accent-main">35+</strong></div>
-                </div>
+      <!-- Top Speakers -->
+      <motion.div
+        class="bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.2 }"
+      >
+        <h3 class="topic-title-cn mb-1 text-tesla-red">
+          活跃发言者 <span class="font-normal text-xl text-primary-dynamic">TOP 8</span>
+        </h3>
+        <p class="topic-title-en">MOST ACTIVE SPEAKERS</p>
+        <ul class="mt-5 space-y-3">
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"
+                ><i class="fas fa-crown mr-2 text-yellow-500 opacity-80 group-hover:opacity-100"></i>
+                清爽樱桃子</span
+              >
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">96</span>
             </div>
-        </motion.section>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 100%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"
+                ><i class="fas fa-star mr-2 text-sky-500 opacity-80 group-hover:opacity-100"></i> 小红小跟班</span
+              >
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">75</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 78.1%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"
+                ><i class="fas fa-medal mr-2 text-orange-500 opacity-80 group-hover:opacity-100"></i> 鸭鸭</span
+              >
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">73</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 76.0%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"> 纯情蟑螂火辣辣</span>
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">61</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 63.5%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"> 灵魂写手</span>
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">54</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 56.3%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"> 金华</span>
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">53</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 55.2%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"> 双</span>
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">42</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 43.8%"></div></div>
+          </li>
+          <li class="group">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-lg text-secondary-dynamic"> 六号技师</span>
+              <span class="stat-number-large text-2xl md:text-3xl text-tesla-red font-bold">37</span>
+            </div>
+            <div class="speaker-bar-bg"><div class="speaker-bar-fill" style="width: 38.5%"></div></div>
+          </li>
+        </ul>
+        <div class="mt-4 text-xs text-subtle-dynamic">* 发言数量为当日精确统计值。</div>
+      </motion.div>
 
-        <!-- 6. 群内数据可视化 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            class="lg:col-span-1 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-chart-pie mr-2"></i>群内数据可视化</h2>
-            
-            <div class="mb-6">
-                <h3 class="font-semibold text-xl text-main mb-2">话唠榜 <span class="text-xs text-sub">(TOP 5)</span></h3>
-                <div class="space-y-3">
-                    <div class="card-bg p-3 rounded-lg">
-                        <div class="flex items-center">
-                            <span class="text-2xl font-bold accent-main mr-3">1</span>
-                            <div>
-                                <div class="font-semibold text-main">纯情蟑螂火辣辣</div>
-                                <div class="text-xs text-sub"><strong class="accent-main">115</strong> 条消息</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-bg p-3 rounded-lg">
-                        <div class="flex items-center">
-                            <span class="text-2xl font-bold accent-main mr-3">2</span>
-                            <div>
-                                <div class="font-semibold text-main">测试失业中～</div>
-                                <div class="text-xs text-sub"><strong class="accent-main">92</strong> 条消息</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-bg p-3 rounded-lg">
-                         <div class="flex items-center">
-                            <span class="text-2xl font-bold accent-main mr-3">3</span>
-                            <div>
-                                <div class="font-semibold text-main">金华</div>
-                                <div class="text-xs text-sub"><strong class="accent-main">88</strong> 条消息</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-bg p-3 rounded-lg">
-                         <div class="flex items-center">
-                            <span class="text-xl font-bold accent-main mr-3">4</span>
-                            <div>
-                                <div class="font-semibold text-main">皇帝</div>
-                                <div class="text-xs text-sub"><strong class="accent-main">71</strong> 条消息</div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="card-bg p-3 rounded-lg">
-                         <div class="flex items-center">
-                            <span class="text-xl font-bold accent-main mr-3">5</span>
-                            <div>
-                                <div class="font-semibold text-main">鸭鸭</div>
-                                <div class="text-xs text-sub"><strong class="accent-main">68</strong> 条消息</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <h3 class="font-semibold text-xl text-main mb-2">熬夜冠军 <i class="fas fa-moon text-yellow-400"></i></h3>
-                 <div class="card-bg p-4 rounded-lg text-center">
-                    <div class="text-4xl mb-2"><i class="fas fa-crown text-yellow-500"></i></div>
-                    <div class="font-semibold text-xl text-main">测试失业中～</div>
-                    <div class="text-sm text-sub">最晚活跃: <strong class="accent-main">01:54</strong></div>
-                    <p class="text-xs text-sub mt-1 italic">"靠，睡不着，下去买酒吧 [裂开]"</p>
-                </div>
-            </div>
-        </motion.section>
+      <!-- 群聊发言王 -->
+      <motion.div
+        class="text-center py-8 bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.25 }"
+      >
+        <h3 class="topic-title-cn text-tesla-red">👑 群聊发言王 👑</h3>
+        <p class="topic-title-en">KING/QUEEN OF CHAT</p>
+        <p class="stat-number-large mt-2" style="font-size: 3rem">清爽樱桃子</p>
+        <p class="content-text">
+          以 <strong class="text-primary-dynamic">96</strong> 条消息荣登本日话痨榜首！积极参与生活、娱乐及二手交易等话题讨论！
+        </p>
+      </motion.div>
 
-        <!-- 2. 实用教程与资源分享 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            class="lg:col-span-1 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-tools mr-2"></i>实用教程与资源分享</h2>
-            <div class="space-y-4">
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">LINK</div>
-                    <h3 class="font-semibold text-lg text-main mb-1">民间故事：黄皮子讨封</h3>
-                    <div class="text-xs text-sub mb-2">分享者: 六号技师 | 时间: 11:25</div>
-                    <p class="text-sm text-sub mb-2">分享了一个关于民间传说“黄皮子讨封”的微信文章链接，引发了群友对该词含义的讨论。</p>
-                    <a href="http://mp.weixin.qq.com/s?__biz=Mzg5Mzg4NTM3Ng==&mid=2247489394&idx=1&sn=04515c224311fa2b814c8b23c95850fb" class="text-sm accent-main hover:underline" target="_blank">查看原文 <i class="fas fa-external-link-alt text-xs"></i></a>
-                    <div class="text-xs text-sub mt-1">分类: 民俗文化</div>
-                </div>
-                 <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">LINK</div>
-                    <h3 class="font-semibold text-lg text-main mb-1">微信群日报项目链接</h3>
-                    <div class="text-xs text-sub mb-2">分享者: 青木（群薪资地花板） | 时间: 13:26 & 10:08 (次日)</div>
-                    <p class="text-sm text-sub mb-2">分享了其个人GitHub Pages上部署的微信群聊总结项目链接，用于展示群日报。</p>
-                    <a href="https://darkergg6.github.io/jjilu/" class="text-sm accent-main hover:underline" target="_blank">查看项目 <i class="fas fa-external-link-alt text-xs"></i></a>
-                    <div class="text-xs text-sub mt-1">分类: 技术项目</div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs accent-main-bg text-white inline-block px-2 py-0.5 rounded-full mb-2">RESOURCE</div>
-                    <h3 class="font-semibold text-lg text-main mb-1">各类公众号文章分享</h3>
-                    <div class="text-xs text-sub mb-2">分享者: 大蓝（大宇哥管家）, 双, 等 | 时间: 全天</div>
-                    <p class="text-sm text-sub mb-2">群内分享了多个微信公众号文章，内容涵盖相亲交友、生活趣闻、时事新闻等。</p>
-                    <div class="text-xs text-sub mt-1">分类: 综合资讯</div>
-                </div>
-            </div>
-        </motion.section>
+      <!-- 发言骚包 NO.1 -->
+      <motion.div
+        class="bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.3 }"
+      >
+        <h3 class="topic-title-cn text-tesla-red">💥 热点话题发起者 💥</h3>
+        <p class="topic-title-en">KEY TOPIC INSTIGATOR</p>
+        <div class="mt-6 text-center">
+          <p class="stat-number-large" style="font-size: 2.5rem; color: var(--text-accent)">灵魂写手</p>
+        </div>
+        <p class="section-label mt-4 text-center">代表言论节选（关于迪士尼斗殴视频）：</p>
+        <div class="space-y-3 content-text">
+          <p class="evaluation-text">
+           "我没看完，就是看着很想锤人" (10:26:51)
+          </p>
+          <p class="evaluation-text">
+           "[抠鼻]要是我小孩给打了" (10:49:46)
+          </p>
+          <p class="evaluation-text">
+           "这两个情侣，要是还能站着，那就是我的问题" (10:49:58)
+          </p>
+          <p class="evaluation-text">
+           "我该检讨" (10:50:00)
+          </p>
+          <p class="evaluation-text">
+            (分享迪士尼斗殴视频，引发群内关于公共冲突与自卫策略的热烈讨论)
+          </p>
+        </div>
+      </motion.div>
 
-        <!-- 3. 重要消息汇总 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            class="lg:col-span-2 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-bullhorn mr-2"></i>重要消息汇总</h2>
-            <div class="space-y-4">
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="flex justify-between items-start mb-1">
-                        <div>
-                            <span class="text-sm text-sub">[14:27] AAA建材王哥</span>
-                            <span class="ml-2 text-xs accent-main-bg text-white px-2 py-0.5 rounded-full">RISK</span>
-                        </div>
-                        <span class="text-xs text-red-500 dark:text-red-400 font-semibold px-2 py-0.5 rounded-full border border-red-500 dark:border-red-400">高</span>
-                    </div>
-                    <p class="text-main text-base">分享了【关于桂林农行退休员工被诈骗355万元的风险提示】，涉及内部员工被骗、网点处理不当等问题，强调了账户查询、高净值客户保护及风险提示的重要性。</p>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="flex justify-between items-start mb-1">
-                        <div>
-                            <span class="text-sm text-sub">[17:55] 金华</span>
-                            <span class="ml-2 text-xs accent-main-bg text-white px-2 py-0.5 rounded-full">NEWS</span>
-                        </div>
-                        <span class="text-xs text-yellow-500 dark:text-yellow-400 font-semibold px-2 py-0.5 rounded-full border border-yellow-500 dark:border-yellow-400">中</span>
-                    </div>
-                    <p class="text-main text-base">转发了成都太古里泡泡玛特门店发生伤人事件的消息及相关图片，引发群友关注与讨论。</p>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="flex justify-between items-start mb-1">
-                        <div>
-                            <span class="text-sm text-sub">[14:15] 纯情蟑螂火辣辣</span>
-                            <span class="ml-2 text-xs accent-main-bg text-white px-2 py-0.5 rounded-full">OTHER</span>
-                        </div>
-                        <span class="text-xs text-blue-500 dark:text-blue-400 font-semibold px-2 py-0.5 rounded-full border border-blue-500 dark:border-blue-400">低</span>
-                    </div>
-                    <p class="text-main text-base">提及错买了当晚去江苏的火车票（原计划为次日），后已改签。引发了关于出差、调休和公司福利的讨论。</p>
-                </div>
-            </div>
-        </motion.section>
-        
-        <!-- 4. 有趣对话或金句 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            class="lg:col-span-3 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-quote-left mr-2"></i>有趣对话或金句</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">DIALOGUE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">皇帝:</strong> 我看了他一眼说你不是说什么都愿意为我做吗，买个小蛋糕都不愿意，他说之前让我吃冰的我说他不拦着点，现在拦着又说他不给我买，说什么都是我，他太难了，我说此一时彼一时</p>
-                        <p><strong class="text-main">测试失业中～:</strong> 磊子哥：又说减肥，又想吃蛋糕 ，吃了又要说不拦着点，不给吃，又说管着这管着那，真难</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">“此一时彼一时” / “磊子哥太难了”</div>
-                    <div class="text-xs text-sub mt-1">相关话题: 情侣日常、小蛋糕风波</div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">QUOTE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">鸭鸭:</strong> 动不动搞死我，你说温柔吗</p>
-                        <p><strong class="text-main">星火航途:</strong> 动不动搞死我，你说温柔吗</p>
-                        <p><strong class="text-main">金华:</strong> 磊子：动不动搞死我，你说温柔吗</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">“动不动搞死我，你说温柔吗”</div>
-                    <div class="text-xs text-sub mt-1">相关话题: 评价群主“皇帝”是否温柔</div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">DIALOGUE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">测试失业中～:</strong> 我还记得老板说，给你一份体面工作就该感恩戴德了</p>
-                        <p><strong class="text-main">纯情蟑螂火辣辣:</strong> 上家公司的傻逼老板也这么说的...说外面大环境不好，工作不好找啊，给你们一个工作的机会，你们就应该感恩之类的</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">“给你一份体面工作就该感恩戴德了”</div>
-                    <div class="text-xs text-sub mt-1">相关话题: 老板PUA言论</div>
-                </div>
-                 <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">QUOTE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">金华:</strong> 磊子醒了后，怀着温柔的情感，为小红精心制作了一个蛋糕，这道美食不仅满足了味蕾，还加深了他们的情感。</p>
-                        <p><strong class="text-main">sunshine:</strong> AI的吧</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">AI式浪漫描写</div>
-                    <div class="text-xs text-sub mt-1">相关话题: AI文学创作与“磊子&小红”故事</div>
-                </div>
-                 <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">DIALOGUE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">测试失业中～:</strong> 下次你直接喊我去当别人小三吧，这样子，我还有赚钱</p>
-                        <p><strong class="text-main">sunshine:</strong> 那不行，当小三会挨打，搞不好命都没了</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">“小三来钱快？”</div>
-                    <div class="text-xs text-sub mt-1">相关话题: 赚钱方式讨论</div>
-                </div>
-                 <div class="card-bg p-4 rounded-lg">
-                    <div class="text-xs bg-purple-500 text-white inline-block px-2 py-0.5 rounded-full mb-2">QUOTE</div>
-                    <div class="space-y-2 text-sm mb-2">
-                        <p><strong class="text-main">鸭鸭:</strong> 朋友支持我，说明我做对了。敌人反对我，更说明我做对了...正式确诊永对机：我做的永远都是对的</p>
-                    </div>
-                    <div class="text-sm italic accent-main font-semibold">“永对机”哲学</div>
-                    <div class="text-xs text-sub mt-1">相关话题: 自我肯定与逻辑</div>
-                </div>
-            </div>
-        </motion.section>
-
-        <!-- 5. 问题与解答 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            class="lg:col-span-3 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-question-circle mr-2"></i>问题与解答</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="mb-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">测试失业中～</span> @ 11:51</div>
-                        <p class="text-main text-base">OIO是啥</p>
-                        <div class="mt-1 flex flex-wrap gap-1 text-xs">
-                            <span class="tag-bg px-2 py-0.5 rounded-full">群内黑话</span><span class="tag-bg px-2 py-0.5 rounded-full">求解释</span>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">六号技师</span> @ 11:55 (通过图片)</div>
-                        <p class="text-main text-base">（图片解释，暗示与“波推”相关）</p>
-                        <span class="text-xs accent-main-bg text-white inline-block px-1.5 py-0.5 rounded-full mt-1">最佳回答</span>
-                    </div>
-                     <div class="border-t border-gray-200 dark:border-gray-700 pt-3 mt-2">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">金华</span> @ 11:54</div>
-                        <p class="text-main text-base">女孩子不要懂太多</p>
-                    </div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="mb-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">皇帝</span> @ 11:01</div>
-                        <p class="text-main text-base">我温柔吗</p>
-                        <div class="mt-1 flex flex-wrap gap-1 text-xs">
-                            <span class="tag-bg px-2 py-0.5 rounded-full">自我认知</span><span class="tag-bg px-2 py-0.5 rounded-full">求评价</span>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">鸭鸭</span> @ 11:04</div>
-                        <p class="text-main text-base">不温柔，你最凶了。还喜欢作。还不关心群友。</p>
-                    </div>
-                     <div class="border-t border-gray-200 dark:border-gray-700 pt-3 mt-2">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">双</span> @ 11:03</div>
-                        <p class="text-main text-base">红子是温柔的</p>
-                    </div>
-                     <div class="border-t border-gray-200 dark:border-gray-700 pt-3 mt-2">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">李磊 (通过皇帝转述)</span> @ 11:32</div>
-                        <p class="text-main text-base">有时候是温柔啊...都喜欢，每一面都喜欢。</p>
-                         <span class="text-xs accent-main-bg text-white inline-block px-1.5 py-0.5 rounded-full mt-1">最佳回答</span>
-                    </div>
-                </div>
-                <div class="card-bg p-4 rounded-lg">
-                    <div class="mb-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">纯情蟑螂火辣辣</span> @ 11:23</div>
-                        <p class="text-main text-base">讨封是啥意思？</p>
-                        <div class="mt-1 flex flex-wrap gap-1 text-xs">
-                            <span class="tag-bg px-2 py-0.5 rounded-full">民俗词汇</span><span class="tag-bg px-2 py-0.5 rounded-full">求科普</span>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
-                        <div class="text-xs text-sub mb-1"><span class="font-semibold text-main">六号技师</span> @ 11:25</div>
-                        <p class="text-main text-base">[链接|民间故事：黄皮子讨封]</p>
-                        <span class="text-xs accent-main-bg text-white inline-block px-1.5 py-0.5 rounded-full mt-1">最佳回答</span>
-                    </div>
-                </div>
-            </div>
-        </motion.section>
-
-        <!-- 6. 话题热度 (simplified from prompt's heatmap) -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            class="lg:col-span-3 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-thermometer-half mr-2"></i>话题热度</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">职场八卦与通勤</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">55</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">两性关系与小蛋糕</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">65</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 100%"></div>
-                    </div>
-                </div>
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">薪资待遇与公司文化</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">40</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-orange-500 h-2.5 rounded-full" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">休闲娱乐（西瓜/露营）</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">30</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 55%"></div>
-                    </div>
-                </div>
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">理财与投资</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">25</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 45%"></div>
-                    </div>
-                </div>
-                <div class="card-bg p-3 rounded-lg">
-                    <div class="font-semibold text-main">群聊元信息与争议</div>
-                    <div class="text-xs text-sub mb-1">提及约 <strong class="accent-main">50</strong> 次</div>
-                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                        <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-        </motion.section>
-
-        <!-- 7. 词云 -->
-        <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            class="lg:col-span-3 section-bg bento-item">
-            <h2 class="bento-title text-main"><i class="fas fa-cloud mr-2"></i>热门词云</h2>
-            <div class="cloud-container">
-                <div class="cloud-wordcloud" id="word-cloud">
-                    <!-- Sample words, dynamically generated based on frequency -->
-                    <span class="cloud-word" style="left: 45%; top: 30%; font-size: 38px; color: #E31937; transform: rotate(-5deg); font-weight: bold;">领导</span>
-                    <span class="cloud-word" style="left: 20%; top: 40%; font-size: 34px; color: #ff8906; transform: rotate(8deg); font-weight: bold;">磊子哥</span>
-                    <span class="cloud-word" style="left: 60%; top: 50%; font-size: 30px; color: #f25f4c; transform: rotate(-12deg);">蛋糕</span>
-                    <span class="cloud-word" style="left: 30%; top: 60%; font-size: 28px; color: #007bff; transform: rotate(3deg);">工作</span>
-                    <span class="cloud-word" style="left: 55%; top: 15%; font-size: 26px; color: #17a2b8; transform: rotate(10deg); font-weight: 500;">公司</span>
-                    <span class="cloud-word" style="left: 70%; top: 35%; font-size: 24px; color: #E31937; opacity:0.8; transform: rotate(-8deg);">温柔</span>
-                    <span class="cloud-word" style="left: 10%; top: 20%; font-size: 22px; color: #ff8906; opacity:0.9; transform: rotate(15deg);">加班</span>
-                    <span class="cloud-word" style="left: 40%; top: 75%; font-size: 20px; color: #f25f4c; transform: rotate(0deg);">金华</span>
-                    <span class="cloud-word" style="left: 65%; top: 70%; font-size: 23px; color: #007bff; opacity:0.85; transform: rotate(-3deg);">OIO</span>
-                    <span class="cloud-word" style="left: 15%; top: 70%; font-size: 21px; color: #17a2b8; transform: rotate(6deg);">西瓜</span>
-                    <span class="cloud-word" style="left: 50%; top: 5%; font-size: 19px; color: #E31937; transform: rotate(12deg);">出差</span>
-                    <span class="cloud-word" style="left: 80%; top: 20%; font-size: 20px; color: #ff8906; transform: rotate(-15deg);">理财</span>
-                    <span class="cloud-word" style="left: 25%; top: 10%; font-size: 24px; color: #f25f4c; opacity:0.9; font-weight: 500;">工资</span>
-                    <span class="cloud-word" style="left: 75%; top: 80%; font-size: 18px; color: #007bff; transform: rotate(9deg);">AI</span>
-                    <span class="cloud-word" style="left: 5%; top: 55%; font-size: 20px; color: #17a2b8; transform: rotate(-6deg);">图片</span>
-                    <span class="cloud-word" style="left: 35%; top: 0%; font-size: 22px; color: #E31937; transform: rotate(1deg); font-weight: 500;">老板</span>
-                    <span class="cloud-word" style="left: 60%; top: 90%; font-size: 19px; color: #ff8906; transform: rotate(-4deg);">聊天</span>
-                    <span class="cloud-word" style="left: 18%; top: 85%; font-size: 21px; color: #f25f4c; transform: rotate(11deg);">红包</span>
-                    <span class="cloud-word" style="left: 85%; top: 60%; font-size: 20px; color: #007bff; opacity:0.8; transform: rotate(-10deg);">学历</span>
-                    <span class="cloud-word" style="left: 48%; top: 60%; font-size: 25px; color: #E31937; transform: rotate(7deg); font-weight: bold;">喜欢</span>
-                    <span class="cloud-word" style="left: 5%; top: 5%; font-size: 23px; color: #ff8906; transform: rotate(-9deg); font-weight: 500;">小白</span>
-                    <span class="cloud-word" style="left: 88%; top: 5%; font-size: 19px; color: #f25f4c; transform: rotate(13deg);">问题</span>
-                    <span class="cloud-word" style="left: 30%; top: 90%; font-size: 18px; color: #007bff; transform: rotate(-2deg);">谢谢</span>
-                    <span class="cloud-word" style="left: 70%; top: 0%; font-size: 21px; color: #17a2b8; transform: rotate(5deg);">睡觉</span>
-                     <span class="cloud-word" style="left: 50%; top: 45%; font-size: 20px; color: #E31937; opacity:0.7; transform: rotate(-15deg);">哈哈哈</span>
-                    <span class="cloud-word" style="left: 12%; top: 50%; font-size: 19px; color: #ff8906; transform: rotate(20deg);">猫</span>
-                </div>
-                <div class="cloud-legend">
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #E31937;"></span>
-                        <span class="text-xs text-sub">核心高频</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #ff8906;"></span>
-                        <span class="text-xs text-sub">热门讨论</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color" style="background-color: #007bff;"></span>
-                        <span class="text-xs text-sub">常规提及</span>
-                    </div>
-                </div>
-            </div>
-        </motion.section>
+      <!-- 熬夜晚睡 TOP 3 -->
+      <motion.div
+        class="bento-card"
+        :initial="{ opacity: 0, y: 30 }"
+        :while-in-view="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, delay: 0.35 }"
+      >
+        <h3 class="topic-title-cn text-tesla-red">🕑 当日记录末尾活跃者 🕑</h3>
+        <p class="topic-title-en">LAST ACTIVE SPEAKERS IN LOG</p>
+        <ul class="mt-5 space-y-4">
+          <li class="flex items-center justify-between p-3 night-owl-item rounded-lg">
+            <span class="text-lg text-secondary-dynamic font-medium"
+              ><i class="fas fa-comment-dots mr-2 text-indigo-500"></i>1. 灵魂写手</span
+            >
+            <span class="text-subtle-dynamic font-semibold">15:00:42</span>
+          </li>
+          <li class="flex items-center justify-between p-3 night-owl-item rounded-lg">
+            <span class="text-lg text-secondary-dynamic font-medium"
+              ><i class="fas fa-comment-dots mr-2 text-indigo-400 opacity-80"></i>2. 王烁烁</span
+            >
+            <span class="text-subtle-dynamic font-semibold">15:00:28</span>
+          </li>
+          <li class="flex items-center justify-between p-3 night-owl-item rounded-lg">
+            <span class="text-lg text-secondary-dynamic font-medium"
+              ><i class="fas fa-comment-dots mr-2 text-indigo-300 opacity-70"></i>3. 初会便已许平生</span
+            >
+            <span class="text-subtle-dynamic font-semibold">15:00:25</span>
+          </li>
+        </ul>
+         <div class="mt-4 text-xs text-subtle-dynamic">* 根据当日聊天记录最晚发言时间统计（日志截至约15:00）。</div>
+      </motion.div>
     </div>
-
-    <motion.footer 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        class="text-center py-6 mt-8 section-bg bento-item text-sub text-xs">
-        <p>数据来源: 深圳程序员交流群 聊天记录</p>
-        <p>生成时间: <span id="generation-time" class="font-semibold">[生成时填充]</span></p>
-        <p>统计周期: 2025-05-30, 10:27 - 01:54 (次日)</p>
-        <p class="mt-3 italic">免责声明: 本报告内容基于群聊公开讨论，观点不代表平台立场。如有不当内容或侵权问题请联系管理员处理。</p>
-    </motion.footer>
 
     <script>
-        // Theme switcher logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-        const sunIcon = themeToggle.querySelector('.fa-sun');
-        const moonIcon = themeToggle.querySelector('.fa-moon');
+      // Framer Motion UMD script will automatically initialize animations
+      // based on the motion attributes in the HTML.
 
-        // Apply theme from localStorage or system preference
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlElement.classList.add('dark');
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const toggleIcon = themeToggle.querySelector('i');
+
+      // Function to set theme
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          body.classList.add('dark-mode');
+          toggleIcon.classList.remove('fa-moon');
+          toggleIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
         } else {
-            htmlElement.classList.remove('dark');
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
+          body.classList.remove('dark-mode');
+          toggleIcon.classList.remove('fa-sun');
+          toggleIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
         }
+      }
 
-        themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-            }
-        });
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        // Optional: Check for system preference
+        // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // setTheme(prefersDark ? 'dark' : 'light');
+      }
 
-        // Set generation time
-        document.getElementById('generation-time').textContent = new Date().toLocaleString('zh-CN', { hour12: false });
-
-        // Framer Motion basic setup (can be enhanced with specific component animations)
-        // This script block ensures Framer Motion is available if components use it programmatically.
-        // For declarative animations as used above, just including the library is enough.
+      themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+          setTheme('light');
+        } else {
+          setTheme('dark');
+        }
+      });
     </script>
 </body>
 </html>
